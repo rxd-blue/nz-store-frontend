@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NZ Store - Smart Products</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🏪 NZ Smart Store</h1>
+    <p class="subtitle">API-Powered Product Filtering & Dynamic Cart</p>
+  </header>
+
+  <div id="product-container">
+    <div id="product-list">
+      <div class="product" data-name="Samsung A23" data-category="Phones" data-brand="Samsung" data-details="128GB, 6.6-inch screen" data-price="$349">
+        <div class="product-title">Samsung A23</div>
+        <div class="product-category">Category: Phones</div>
+        <div class="product-brand">Brand: Samsung</div>
+        <div class="product-details">128GB, 6.6-inch screen</div>
+        <div class="product-price">$349</div>
+      </div>
+      
+      <div class="product" data-name="LG WashPro" data-category="Washers" data-brand="LG" data-details="9kg, White" data-price="$899">
+        <div class="product-title">LG WashPro</div>
+        <div class="product-category">Category: Washers</div>
+        <div class="product-brand">Brand: LG</div>
+        <div class="product-details">9kg, White</div>
+        <div class="product-price">$899</div>
+      </div>
+      
+      <div class="product" data-name="Xiaomi Note 12" data-category="Phones" data-brand="Xiaomi" data-details="6GB RAM, 6.4-inch screen" data-price="$299">
+        <div class="product-title">Xiaomi Note 12</div>
+        <div class="product-category">Category: Phones</div>
+        <div class="product-brand">Brand: Xiaomi</div>
+        <div class="product-details">6GB RAM, 6.4-inch screen</div>
+        <div class="product-price">$299</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-in Cart -->
+  <div id="cart-slide" class="hidden">
+    <h2>🛒 Your Cart</h2>
+    <div id="cart-content"></div>
+    <div id="cart-total">Total: $0</div>
+    <button onclick="completeCheckout()">Checkout</button>
+  </div>
+
+  <footer>
+    <p>NZ Store - API-Powered Shopping Experience</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html> 
