@@ -1,4 +1,4 @@
-const API_URL = 'https://33996a5c-37cb-4fe4-b733-0d54b16752bf-00-18t9sdi58ywf1.janeway.replit.dev'; // Replit backend URL
+const API_URL = 'https://604dfb5d-c17c-4372-881b-0836d17752dd-00-q5cjm69r7nrk.worf.replit.dev'; // Replit backend URL
 
 let lastFilter = {};
 let currentCart = [];
