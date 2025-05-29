@@ -6,61 +6,45 @@
   <title>NZ Store - Smart Products</title>
   <link rel="stylesheet" href="style.css" />
   
-  <!-- Chatbot Builder AI Floating Bubble Styles -->
+  <!-- Chatbot Webview Styles -->
   <style>
-  .ktt10-btn {
-      width: 70px !important;
-      height: 70px !important;
-      background: linear-gradient(45deg, #36d6b5, #2fb298) !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      overflow: hidden !important;
-  }
-
-  .ktt10-btn img {
-      width: 60% !important;
-      height: 60% !important;
-      object-fit: cover !important;
-      transform: translate(0px, 0px) !important;
-  }
-
-  #chatbot-popup {
-      position: fixed;
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      background: #ffffff;
-      border: 1px solid #e9ecef;
-      color: #1c1c1e;
-      bottom: 110px;
-      right: 20px;
-      font-size: 16px;
-      font-family: Arial;
-      font-weight: normal;
-      font-style: normal;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-      z-index: 9999;
-      min-width: 200px;
-      max-width: 300px;
+  .chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
-  #chatbot-popup-text {
-      cursor: pointer;
-      flex-grow: 1;
+  .chatbot-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #36d6b5, #2fb298);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
   }
   
-  #chatbot-popup-close {
-      background: none;
-      border: none;
-      font-size: 20px;
-      color: #8e8e93;
-      cursor: pointer;
-      padding: 0;
-      line-height: 1;
+  .chatbot-button img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+  }
+  
+  .chatbot-frame {
+    display: none;
+    width: 350px;
+    height: 500px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background-color: white;
   }
   </style>
 </head>
@@ -110,76 +94,33 @@
     <p>NZ Store - API-Powered Shopping Experience</p>
   </footer>
 
-  <!-- Chatbot Builder AI Custom Popup -->
-  <div id="chatbot-popup">
-    <span id="chatbot-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Click Here for a Discount 💸</span>
-    <button id="chatbot-popup-close">&times;</button>
+  <!-- Chatbot Webview Container -->
+  <div class="chatbot-container">
+    <div class="chatbot-button" id="chatbot-toggle">
+      <img src="https://i.ibb.co/pPksxnb/default-chat-icom.png" alt="Chat">
+    </div>
+    <iframe id="chatbot-frame" class="chatbot-frame" src="https://app.chatgptbuilder.io/webchat/?p=1280901&ref=1725999534068" allow="microphone; camera"></iframe>
   </div>
 
   <script src="script.js"></script>
   
-  <!-- Chatbot Builder AI Scripts -->
-  <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script>
+  <!-- Chatbot Webview Script -->
   <script>
-  (function() {
-      ktt10.setup({
-          accountId: "YOUR_ACCOUNT_ID", // Replace with your actual account ID
-          id: "YOUR_CHATBOT_ID", // Replace with your actual chatbot ID
-          color: "#36d6b5",
-          icon: "https://i.ibb.co/pPksxnb/default-chat-icom.png",
-          type: "floating"
-      });
-
-      const popup = document.getElementById('chatbot-popup');
-      const popupTextEl = document.getElementById('chatbot-popup-text');
-      const closePopupBtn = document.getElementById('chatbot-popup-close');
-      let chatTimer = null;
-      let popupTimer = null;
-
-      function showPopup() {
-          popup.style.display = 'flex';
-      }
-
-      function hidePopup() {
-          popup.style.display = 'none';
-      }
-
-      function initializeTimers() {
-          if (chatTimer) clearTimeout(chatTimer);
-          if (popupTimer) clearTimeout(popupTimer);
-
-          if (0 > 0) {
-              popupTimer = setTimeout(showPopup, 0 * 1000);
-          } else {
-              showPopup();
-          }
-
-          const ktt10Btn = document.querySelector('.ktt10-btn');
-          if (0 > 0 && ktt10Btn) {
-              chatTimer = setTimeout(() => {
-                  ktt10Btn.click();
-                  hidePopup();
-              }, 0 * 1000);
-          }
-      }
-
-      popupTextEl.addEventListener('click', () => {
-          const ktt10Btn = document.querySelector('.ktt10-btn');
-          if (ktt10Btn) ktt10Btn.click();
-          hidePopup();
-      });
-
-      closePopupBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          hidePopup();
-      });
-
-      if (document.readyState === 'complete') {
-          initializeTimers();
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotFrame = document.getElementById('chatbot-frame');
+    let chatbotOpen = false;
+    
+    chatbotToggle.addEventListener('click', function() {
+      if (chatbotOpen) {
+        chatbotFrame.style.display = 'none';
+        chatbotOpen = false;
       } else {
-          window.addEventListener('load', initializeTimers);
+        chatbotFrame.style.display = 'block';
+        chatbotOpen = true;
       }
-  })();
+    });
+  });
   </script>
 </body>
 </html> 
