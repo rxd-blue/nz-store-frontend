@@ -184,4 +184,4 @@ setInterval(async () => {
   } catch (err) {
     console.error('Polling error:', err);
   }
-}, 2000); 
+}, 2000);

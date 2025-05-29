@@ -1,4 +1,4 @@
-# NZ Store - API-Powered Product Filtering & Dynamic Cart
+# NZ Store Frontend
 
 A responsive, intelligent storefront UI that displays products with filtering based on category & brand, and accepts external API requests to filter products and trigger a slide-in cart.
 
@@ -17,84 +17,16 @@ A responsive, intelligent storefront UI that displays products with filtering ba
 | Component   | Technology              | Hosting Platform |
 | ----------- | ----------------------- | ---------------- |
 | Frontend UI | HTML + CSS + JavaScript | **Vercel**       |
-| Backend API | Node.js (Express)       | **Glitch**       |
+| Backend API | Node.js (Express)       | **Replit**       |
 
 ## 🚀 Deployment Guide
 
 ### Frontend (Vercel)
 
 1. Create a Vercel account at https://vercel.com
-2. Create a new GitHub repository and push this code to it
-3. In Vercel, import your GitHub repo
-4. Deploy your project
-
-### Backend (Glitch)
-
-1. Create a Glitch account at https://glitch.com
-2. Create a new project
-3. Upload `server.js` and `package.json` files to your project
-4. Once deployed, Glitch will give you a live backend URL
-5. **Important:** Update the `API_URL` variable in `script.js` with your Glitch URL
-
-## 🖥️ Local Development
-
-1. Clone the repository
-2. Install backend dependencies:
-   ```
-   npm install
-   ```
-3. Start the backend:
-   ```
-   node server.js
-   ```
-4. Open `index.html` in a browser
-
-## 🔌 API Documentation
-
-### Product Filtering
-
-```bash
-# Filter products by category and brand
-POST https://your-api.glitch.me/api/filter
-Content-Type: application/json
-
-{
-  "category": "Phones",
-  "brand": "Samsung"
-}
-
-# Filter products by category only
-POST https://your-api.glitch.me/api/filter
-Content-Type: application/json
-
-{
-  "category": "Phones"
-}
-
-# Reset filters
-POST https://your-api.glitch.me/api/filter
-Content-Type: application/json
-
-{}
-```
-
-### Cart Management
-
-```bash
-# Add products to cart by name
-POST https://your-api.glitch.me/api/cart/named
-Content-Type: application/json
-
-{
-  "names": ["Samsung A23", "LG WashPro"]
-}
-
-# Get current cart
-GET https://your-api.glitch.me/api/cart
-
-# Reset cart
-POST https://your-api.glitch.me/api/cart/reset
-```
+2. Import this GitHub repo
+3. Deploy your project
+4. **Important:** Update the `API_URL` in `script.js` with your Replit backend URL
 
 ## 📱 UI Features
 
@@ -104,8 +36,59 @@ POST https://your-api.glitch.me/api/cart/reset
 - Mobile-friendly design
 - Auto-calculated cart totals
 
+## 🔌 API Documentation
+
+### Product Filtering
+
+```bash
+# Filter products by category and brand
+POST https://your-api.replit.dev/api/filter
+Content-Type: application/json
+
+{
+  "category": "Phones",
+  "brand": "Samsung"
+}
+
+# Filter products by category only
+POST https://your-api.replit.dev/api/filter
+Content-Type: application/json
+
+{
+  "category": "Phones"
+}
+
+# Reset filters
+POST https://your-api.replit.dev/api/filter
+Content-Type: application/json
+
+{}
+```
+
+### Cart Management
+
+```bash
+# Add products to cart by name
+POST https://your-api.replit.dev/api/cart/named
+Content-Type: application/json
+
+{
+  "names": ["Samsung A23", "LG WashPro"]
+}
+
+# Get current cart
+GET https://your-api.replit.dev/api/cart
+
+# Reset cart
+POST https://your-api.replit.dev/api/cart/reset
+```
+
+## Backend Repository
+
+The backend for this project is available at [nz-store-backend](https://github.com/rxd-blue/nz-store-backend)
+
 ## 🛠️ Customization
 
-- Update the product data in `server.js` to add more products
+- Update the product data in backend to add more products
 - Modify CSS variables in `style.css` to change the color scheme
-- Add more filtering options by extending the filter API 
+- Add more filtering options by extending the filter API
