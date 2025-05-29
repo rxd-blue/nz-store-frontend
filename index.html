@@ -25,7 +25,7 @@
       transform: translate(0px, 0px) !important;
   }
 
-  #custom-popup {
+  #chatbot-popup {
       position: fixed;
       display: none;
       align-items: center;
@@ -48,12 +48,12 @@
       max-width: 300px;
   }
   
-  #custom-popup-text {
+  #chatbot-popup-text {
       cursor: pointer;
       flex-grow: 1;
   }
   
-  #custom-popup-close {
+  #chatbot-popup-close {
       background: none;
       border: none;
       font-size: 20px;
@@ -111,9 +111,9 @@
   </footer>
 
   <!-- Chatbot Builder AI Custom Popup -->
-  <div id="custom-popup">
-    <span id="custom-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Click Here for a Discount 💸</span>
-    <button id="custom-popup-close">&times;</button>
+  <div id="chatbot-popup">
+    <span id="chatbot-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Click Here for a Discount 💸</span>
+    <button id="chatbot-popup-close">&times;</button>
   </div>
 
   <script src="script.js"></script>
@@ -123,16 +123,16 @@
   <script>
   (function() {
       ktt10.setup({
-          accountId: "",
-          id: "",
+          accountId: "YOUR_ACCOUNT_ID", // Replace with your actual account ID
+          id: "YOUR_CHATBOT_ID", // Replace with your actual chatbot ID
           color: "#36d6b5",
           icon: "https://i.ibb.co/pPksxnb/default-chat-icom.png",
           type: "floating"
       });
 
-      const popup = document.getElementById('custom-popup');
-      const popupTextEl = document.getElementById('custom-popup-text');
-      const closePopupBtn = document.getElementById('custom-popup-close');
+      const popup = document.getElementById('chatbot-popup');
+      const popupTextEl = document.getElementById('chatbot-popup-text');
+      const closePopupBtn = document.getElementById('chatbot-popup-close');
       let chatTimer = null;
       let popupTimer = null;
 
